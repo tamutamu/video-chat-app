@@ -20,10 +20,10 @@ io.on("connection", (socket) => {
     socket.join(roomId);
     socket.to(roomId).emit("user-connected", userId);
     socket.on("disconnect", () => {
-      socket.to(roomId).broadcast.emit("user-disconnected", userId);
+      // socket.to(roomId).broadcast.emit("user-disconnected", userId);
     });
   });
 });
 
-server.listen(process.env.PORT || 3030);
+server.listen(process.env.PORT || 3030, '0.0.0.0');
 
